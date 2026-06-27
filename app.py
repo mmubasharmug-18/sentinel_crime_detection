@@ -21,11 +21,8 @@ app = dash.Dash(
     update_title=None,
 )
 
-<<<<<<< HEAD
 server = app.server
 
-=======
->>>>>>> 9a304d7c010b1d371ca0b30fdbb6c9a48458987f
 BG      = "#030712"
 PANEL   = "#080f1a"
 CARD    = "#0a1628"
