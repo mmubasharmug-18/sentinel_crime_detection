@@ -883,8 +883,8 @@ if __name__ == "__main__":
     print("  SENTINEL — Crime Detection AI Dashboard")
     print("  http://127.0.0.1:7860")
     print("="*55 + "\n")
-<<<<<<< HEAD
-    app.run(debug=False, host="0.0.0.0", port=7860)
-=======
-    app.run(debug=False, host="0.0.0.0", port=7860)
->>>>>>> 9a304d7c010b1d371ca0b30fdbb6c9a48458987f
+    app.run(
+    host="0.0.0.0",
+    port=int(os.environ.get("PORT", 7860)),
+    debug=False
+)

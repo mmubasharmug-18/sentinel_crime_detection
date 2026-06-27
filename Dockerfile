@@ -1,6 +1,6 @@
 FROM python:3.10-slim
 
-# Install system dependencies needed by OpenCV and ultralytics
+# System dependencies
 RUN apt-get update && apt-get install -y \
     libgl1 \
     libglib2.0-0 \
@@ -12,17 +12,15 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Copy requirements first (layer caching)
 COPY requirements.txt .
 
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the project
 COPY . .
 
-# Hugging Face Spaces runs on port 7860
-EXPOSE 7860
+# Render provides the PORT environment variable
+ENV PORT=10000
 
-# Run the app
+EXPOSE 10000
+
 CMD ["python", "app.py"]
